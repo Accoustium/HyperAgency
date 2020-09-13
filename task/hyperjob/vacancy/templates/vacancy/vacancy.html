@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block page_title %}Vancancy{% endblock page_title %}
+
+{% block body_content %}
+    {% for vacancy in vacancies %}
+    <div class="vacancy">{{ vacancy.author }}: {{ vacancy.description }}</div>
+    {% endfor %}
+{% endblock body_content %}

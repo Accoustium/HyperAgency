@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}New Vacancy{% endblock page_title %}
+
+{% block body_content %}
+    <div>
+        <form role="form" method="post" action="{% url 'new_vacancy' %}">{% csrf_token %}
+
+            {{ form | crispy }}
+
+            <button type="submit" class="btn btn-success">Upload</button>
+        </form>
+    </div>
+{% endblock body_content%}

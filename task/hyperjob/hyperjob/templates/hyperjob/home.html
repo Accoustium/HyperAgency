@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+{% if request.user.is_authenticated %}
+    {{ request.user.username }}'s Home
+{% else %}
+    User Home
+{% endif %}
+{% endblock page_title %}
+
+{% block body_content %}
+{% if request.user.is_authenticated %}
+    <div>
+        {% if request.user.is_staff %}
+            <form method="get" action="{% url 'new_vacancy' %}">{% csrf_token %}
+                <button type="submit" class="btn btn-success">Create Vacancy</button>
+            </form>
+        {% else %}
+            <form method="get" action="{% url 'new_resume' %}">{% csrf_token %}
+                <button type="submit" class="btn btn-success">Create Resume</button>
+            </form>
+        {% endif %}
+    </div>
+{% endif %}
+{% endblock body_content %}

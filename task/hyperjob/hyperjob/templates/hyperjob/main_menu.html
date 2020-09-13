@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block page_title %}Main Menu{% endblock page_title %}
+
+{% block body_content %}
+<h2>Welcome to HyperJob!</h2>
+
+<div class="loginLink">
+    <a href="{% url 'login' %}}">Login</a>
+</div>
+<div class="signupLink">
+    <a href="{% url 'signup' %}">Sign Up</a>
+</div>
+<div class="vacancyLink">
+    <a href="/vacancies">Vacancy</a>
+</div>
+<div class="resumeLink">
+    <a href="/resumes">Resume</a>
+</div>
+<div class="homePageLink">
+    <a href="/home">Home</a>
+</div>
+{% endblock body_content %}

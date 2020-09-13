@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block page_title %}Resume{% endblock page_title %}
+
+{% block body_content %}
+    {% for resume in resumes %}
+    <div class="resume">{{ resume.author }}: {{ resume.description }}</div>
+    {% endfor %}
+{% endblock body_content %}
