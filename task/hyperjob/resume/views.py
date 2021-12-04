@@ -1,3 +1,4 @@
+import os
 import django
 from django.views import View
 from django.shortcuts import render, redirect
@@ -9,7 +10,7 @@ from django.core.exceptions import PermissionDenied
 
 # Create your views here.
 class MainResumeView(View):
-    template_name = "resume\\resumes.html"
+    template_name = os.path.join("resume", "resumes.html")
 
     def get(self, request, *agrs, **kwargs):
         resumes = Resume.objects.all()
@@ -18,7 +19,7 @@ class MainResumeView(View):
 
 
 class AddResumeView(View):
-    template_name = "resume/new_resume.html"
+    template_name = os.path.join("resume", "new_resume.html")
     form_class = resumeForm()
 
     def get(self, request, *args, **kwargs):
